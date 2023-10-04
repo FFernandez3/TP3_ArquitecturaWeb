@@ -53,7 +53,7 @@ public class LoadDataBase {
 			StudentCareer sc11 = new StudentCareer(c2,s4,null,2023, false);
 			StudentCareer sc12 = new StudentCareer(c5,s6,null,2023, false);
 			
-			/*log.info("Preloading " + careerRepository.save(c1));
+			log.info("Preloading " + careerRepository.save(c1));
 			log.info("Preloading " + careerRepository.save(c2));
 			log.info("Preloading " + careerRepository.save(c3));
 			log.info("Preloading " + careerRepository.save(c4));
@@ -81,7 +81,7 @@ public class LoadDataBase {
 			log.info("Preloading " + studentCareerRepository.save(sc9));
 			log.info("Preloading " + studentCareerRepository.save(sc10));
 			log.info("Preloading " + studentCareerRepository.save(sc11));
-			log.info("Preloading " + studentCareerRepository.save(sc12));*/
+			log.info("Preloading " + studentCareerRepository.save(sc12));
 			
 		};
 	}

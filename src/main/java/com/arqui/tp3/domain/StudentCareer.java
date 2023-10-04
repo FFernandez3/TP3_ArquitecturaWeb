@@ -30,14 +30,14 @@ public class StudentCareer /*implements Serializable */{
 	@ManyToOne(fetch = FetchType.LAZY)
 	/*@MapsId("id")*/
 	/*@JoinColumn(name = "id_Career", referencedColumnName="id")*/
-	@JoinColumn(name = "id_Career")
+	@JoinColumn(name = "id_Career", nullable=false)
 	private Career career;
 	
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
 	/*@MapsId("dni")*/
 	/*@JoinColumn(name = "id_Student", referencedColumnName="dni")*/
-	@JoinColumn(name = "id_Student")
+	@JoinColumn(name = "id_Student", nullable=false)
 	private Student student;
 
 	@Column(nullable = true)
