@@ -10,10 +10,13 @@ import com.arqui.tp3.domain.Career;
 import com.arqui.tp3.dto.EnrolledDTO;
 import com.arqui.tp3.dto.StudentDTO;
 
-@Repository("CareerRepository")
-public interface CareerRepository extends JpaRepository<Career, Integer>  {
+@Repository
+public interface CareerRepository extends JpaRepository<Career, Long>  {
 	
 		
+	
+	
+	/*@Query(value="SELECT c.id, c.name, s.name, s.city FROM Student s JOIN StudentCareer sc ON s.dni = sc.student JOIN Career c ON sc.career = c.id WHERE (c.name = :careerName) AND (s.city = :city)")*/
 	@Query(value="SELECT c.id, c.name, s.name, s.city FROM Student s JOIN StudentCareer sc ON s.idStudent = sc.student JOIN Career c ON sc.career = c.id WHERE (c.name = :careerName) AND (s.city = :city)", nativeQuery=true)
 	public List<EnrolledDTO> getStudentsByCarrerAndCity(String careerName, String city);
 	//el insert (save) lo vamos a pedir directo en el service al JPARepository

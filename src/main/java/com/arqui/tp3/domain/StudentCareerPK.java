@@ -20,6 +20,12 @@ public class StudentCareerPK implements Serializable{
     @Column( name = "id_Student")
     private Long idStudent;
     
+    
+    
+	public StudentCareerPK() {
+		super();
+	}
+
 	public StudentCareerPK(Long id, Long idStudent) {
 		super();
 		this.idCareer = id;

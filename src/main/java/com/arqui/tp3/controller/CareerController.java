@@ -28,7 +28,7 @@ public class CareerController {
 	}
 	
 	@PostMapping("")
-	public Career save(@PathVariable Career entity) throws Exception{
+	public Career save(Career entity) throws Exception{
 		return this.careerService.save(entity);
 	}
 

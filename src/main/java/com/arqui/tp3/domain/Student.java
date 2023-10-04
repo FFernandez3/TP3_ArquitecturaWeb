@@ -17,18 +17,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @SuppressWarnings("serial")
 @Data
 @Entity
 @EnableAutoConfiguration
-public class Student implements Serializable{
+@NoArgsConstructor
+public class Student /*implements Serializable*/{
 	
 	@Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;
-	@Column(nullable=false, unique = true)
 	private Long dni;
+    /*@GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Long id;*/
+	
+	/*@Column(nullable=false)*/
+
 	@Column(nullable=false)
 	private String name;
 	@Column(nullable=false)
@@ -41,11 +45,15 @@ public class Student implements Serializable{
 	private Long studentId;
 	@Column(nullable=false)
 	private String city;
-	@OneToMany(mappedBy="student", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy="student", cascade = CascadeType.MERGE)
 	@JsonManagedReference
 	private List<StudentCareer>careers; 
 	
 	
+	
+	public Student() {
+		super();
+	}
 	public Student(Long i, String name, String surname, char genre, int age, Long studentId, String city) {
 		super();
 		this.dni = i;
@@ -104,13 +112,13 @@ public class Student implements Serializable{
 		this.city = city;
 	}
 
-	public Long getIdStudent() {
+	/*public Long getIdStudent() {
 		return id;
 	}
 
 	public void setIdStudent(Long idStudent) {
 		this.id = idStudent;
-	}
+	}*/
 
 }
 

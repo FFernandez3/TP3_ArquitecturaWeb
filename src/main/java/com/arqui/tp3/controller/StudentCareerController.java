@@ -31,7 +31,7 @@ public class StudentCareerController {
 		return this.studentCareerService.getReport();
 	}
 	@PostMapping("")
-	public StudentCareer save(@PathVariable StudentCareer entity) throws Exception{
+	public StudentCareer save(StudentCareer entity) throws Exception{
 		return this.studentCareerService.save(entity);
 	}
 

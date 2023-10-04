@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.arqui.tp3.domain.Student;
 import com.arqui.tp3.dto.StudentDTO;
 
-@Repository("StudentRepository")
+@Repository
 public interface StudentRepository extends JpaRepository<Student, Long>  {
 	
 	//estos metodos son necesarios en el repo? o directo en el service?

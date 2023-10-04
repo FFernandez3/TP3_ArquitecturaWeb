@@ -21,7 +21,7 @@ public class StudentController {
 	private StudentServiceImpl studentService;
 	
 	@GetMapping("/dni") 
-	public List<StudentDTO>findAll(@PathVariable Long dni){
+	public List<StudentDTO>findAll(Long dni){
 		return this.studentService.findAll(dni);
 	}
 	
@@ -34,7 +34,7 @@ public class StudentController {
 		return this.studentService.findByStudentId(studentId);
 	}
 	@PostMapping("")
-	public Student save(@PathVariable Student entity) throws Exception{
+	public Student save(Student entity) throws Exception{
 		return this.studentService.save(entity);
 	}
 	

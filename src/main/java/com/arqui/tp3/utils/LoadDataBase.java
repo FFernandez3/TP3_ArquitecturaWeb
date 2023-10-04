@@ -26,6 +26,7 @@ public class LoadDataBase {
 			Career c4 = new Career("Profesorado de Matemática");
 			Career c5 = new Career("Profesorado de Física");
 			Career c6 = new Career("Licenciatura en Matemática");
+			Career c7=new Career("Artes");
 			
 			Student s1 = new Student(32472514L, "Maria", "Conti", 'F', 28, 25678L, "Tandil");
 			Student s2 = new Student(39290710L, "Florencia", "Fernandez", 'F', 22, 25999L, "Tandil");
@@ -52,7 +53,7 @@ public class LoadDataBase {
 			StudentCareer sc11 = new StudentCareer(c2,s4,null,2023, false);
 			StudentCareer sc12 = new StudentCareer(c5,s6,null,2023, false);
 			
-			log.info("Preloading " + careerRepository.save(c1));
+			/*log.info("Preloading " + careerRepository.save(c1));
 			log.info("Preloading " + careerRepository.save(c2));
 			log.info("Preloading " + careerRepository.save(c3));
 			log.info("Preloading " + careerRepository.save(c4));
@@ -80,7 +81,7 @@ public class LoadDataBase {
 			log.info("Preloading " + studentCareerRepository.save(sc9));
 			log.info("Preloading " + studentCareerRepository.save(sc10));
 			log.info("Preloading " + studentCareerRepository.save(sc11));
-			log.info("Preloading " + studentCareerRepository.save(sc12));
+			log.info("Preloading " + studentCareerRepository.save(sc12));*/
 			
 		};
 	}
