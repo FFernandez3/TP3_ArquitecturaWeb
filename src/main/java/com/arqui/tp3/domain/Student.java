@@ -12,16 +12,22 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
+@SuppressWarnings("serial")
 @Data
 @Entity
 @EnableAutoConfiguration
 public class Student implements Serializable{
 	
 	@Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Long id;
+	@Column(nullable=false, unique = true)
 	private Long dni;
 	@Column(nullable=false)
 	private String name;
@@ -39,13 +45,8 @@ public class Student implements Serializable{
 	@JsonManagedReference
 	private List<StudentCareer>careers; 
 	
-
-	public Student() {
-		super();
-		this.careers=new ArrayList<StudentCareer>();
-	}
 	
-	public Student(long i, String name, String surname, char genre, int age, Long studentId, String city) {
+	public Student(Long i, String name, String surname, char genre, int age, Long studentId, String city) {
 		super();
 		this.dni = i;
 		this.name = name;
@@ -101,6 +102,14 @@ public class Student implements Serializable{
 	}
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public Long getIdStudent() {
+		return id;
+	}
+
+	public void setIdStudent(Long idStudent) {
+		this.id = idStudent;
 	}
 
 }

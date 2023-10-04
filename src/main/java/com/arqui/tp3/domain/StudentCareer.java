@@ -4,45 +4,32 @@ import java.io.Serializable;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
+
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @EnableAutoConfiguration
-@NoArgsConstructor
+
 public class StudentCareer implements Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;
-
-
-
-	public StudentCareer() {
-		super();
-	}
-
 	
 	@EmbeddedId
 	private StudentCareerPK id;
 	
-	
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@MapsId("id")
-	@JoinColumn(name = "career", referencedColumnName = "id")
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("idCareer")
+	@JoinColumn(name = "id_Career")
 	private Career career;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@MapsId("dni")
-	@JoinColumn(name = "student", referencedColumnName = "dni")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("idStudent")
+	@JoinColumn(name = "id_Student")
 	private Student student;
 
 	@Column(nullable = true)

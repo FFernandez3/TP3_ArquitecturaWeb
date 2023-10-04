@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@SuppressWarnings("serial")
 @Data
 @Entity
 @NoArgsConstructor
@@ -21,27 +23,25 @@ public class Career implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	@Column(name = "career_name", unique = true)
 	private String name;
-	@OneToMany(mappedBy = "career")
+	@OneToMany(mappedBy = "career", cascade = CascadeType.PERSIST)
 	@JsonManagedReference
 	private List<StudentCareer> students;
 
 	
-	public Career() {
-		
-	}
+
 	public Career(String name) {
 		super();
 		this.name = name;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

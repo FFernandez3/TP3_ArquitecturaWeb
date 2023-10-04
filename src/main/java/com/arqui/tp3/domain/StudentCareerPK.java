@@ -4,11 +4,8 @@ import java.io.Serializable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 
 @Embeddable
 @Getter @Setter
@@ -16,34 +13,17 @@ import lombok.Setter;
 @EqualsAndHashCode
 public class StudentCareerPK implements Serializable{
 	
-	@Column( name = "id")
-    private Long id;
-    @Column( name = "dni")
-    private Long dni;
+	
+	@Column(name = "id_Career")
+    private Long idCareer;
+	
+    @Column( name = "id_Student")
+    private Long idStudent;
     
-	public StudentCareerPK(Long id, Long dni) {
+	public StudentCareerPK(Long id, Long idStudent) {
 		super();
-		this.id = id;
-		this.dni = dni;
+		this.idCareer = id;
+		this.idStudent = idStudent;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getDni() {
-		return dni;
-	}
-
-	public void setDni(Long dni) {
-		this.dni = dni;
-	}
-	
-	
-	
 
 }
