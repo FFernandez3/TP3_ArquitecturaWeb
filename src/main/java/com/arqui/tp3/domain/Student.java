@@ -38,7 +38,7 @@ public class Student /*implements Serializable*/{
 	@Column(nullable=false)
 	private String surname;
 	@Column(nullable=false)
-	private char genre;
+	private String genre;
 	@Column(nullable=false)
 	private int age;
 	@Column(nullable=false)
@@ -54,7 +54,7 @@ public class Student /*implements Serializable*/{
 	public Student() {
 		super();
 	}
-	public Student(Long i, String name, String surname, char genre, int age, Long studentId, String city) {
+	public Student(Long i, String name, String surname, String genre, int age, Long studentId, String city) {
 		super();
 		this.dni = i;
 		this.name = name;
@@ -87,10 +87,10 @@ public class Student /*implements Serializable*/{
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public char getGenre() {
+	public String getGenre() {
 		return genre;
 	}
-	public void setGenre(char genre) {
+	public void setGenre(String genre) {
 		this.genre = genre;
 	}
 	public int getAge() {

@@ -20,7 +20,7 @@ public class LoadDataBase {
 	@Bean
 	CommandLineRunner initDatabase(StudentRepository  studentRepository, CareerRepository careerRepository, StudentCareerRepository studentCareerRepository) {
 		return args -> {
-			Career c1 = new Career("TUDAI");
+			/*Career c1 = new Career("TUDAI");
 			Career c2 = new Career("Ingenieria");
 			Career c3 = new Career("TUARI");
 			Career c4 = new Career("Profesorado de Matemática");
@@ -53,7 +53,7 @@ public class LoadDataBase {
 			StudentCareer sc11 = new StudentCareer(c2,s4,null,2023, false);
 			StudentCareer sc12 = new StudentCareer(c5,s6,null,2023, false);
 			
-			/*log.info("Preloading " + careerRepository.save(c1));
+			log.info("Preloading " + careerRepository.save(c1));
 			log.info("Preloading " + careerRepository.save(c2));
 			log.info("Preloading " + careerRepository.save(c3));
 			log.info("Preloading " + careerRepository.save(c4));
