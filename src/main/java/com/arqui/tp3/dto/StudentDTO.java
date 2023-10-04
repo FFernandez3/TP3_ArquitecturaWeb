@@ -13,7 +13,7 @@ public class StudentDTO {
     
     private String surname;
     
-    private char genre;
+    private String genre;
     
     private int age;
     
@@ -25,7 +25,7 @@ public class StudentDTO {
         
     }
 
-    public StudentDTO(Long dni, String name, String surname, char genre, int age, Long studentId, String city) {
+    public StudentDTO(Long dni, String name, String surname, String genre, int age, Long studentId, String city) {
         super();
         this.dni = dni;
         this.name = name;
@@ -48,7 +48,7 @@ public class StudentDTO {
         return surname;
     }
 
-    public char getGenre() {
+    public String getGenre() {
         return genre;
     }
 

@@ -20,6 +20,12 @@ public class StudentServiceImpl /*implements StudentService*/{
 	@Autowired
 	private StudentRepository studentRepository;
 	
+	
+	public StudentServiceImpl(StudentRepository studentRepository) {
+		super();
+		this.studentRepository = studentRepository;
+	}
+
 	//save 
 	@Transactional
 	public Student save(Student entity) throws Exception{
@@ -32,12 +38,12 @@ public class StudentServiceImpl /*implements StudentService*/{
 	}
 	
 	@Transactional
-	public List<StudentDTO>findAll(Long dni){
-		return this.studentRepository.findAll(dni).stream().map(student->new StudentDTO(student.getDni(), student.getName(), student.getSurname(), student.getGenre(), student.getAge(), student.getStudentId(), student.getCity())).toList();
+	public Optional<StudentDTO> findById(Long dni){
+		return this.studentRepository.findById(dni).map(student->new StudentDTO(student.getDni(), student.getName(), student.getSurname(), student.getGenre(), student.getAge(), student.getStudentId(), student.getCity()));
 		
 	}
 	@Transactional
-	public List<StudentDTO> findByGenre(char genre){
+	public List<StudentDTO> findByGenre(String genre){
 		return this.studentRepository.findByGenre(genre).stream().map(student->new StudentDTO(student.getDni(), student.getName(), student.getSurname(), student.getGenre(), student.getAge(), student.getStudentId(), student.getCity())).toList();
 		
 	}

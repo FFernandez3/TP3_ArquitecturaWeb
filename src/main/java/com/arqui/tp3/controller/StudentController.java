@@ -1,6 +1,7 @@
 package com.arqui.tp3.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,27 +13,34 @@ import com.arqui.tp3.domain.Student;
 import com.arqui.tp3.dto.StudentDTO;
 import com.arqui.tp3.service.StudentServiceImpl;
 
-import lombok.RequiredArgsConstructor;
+
 
 @RestController
-@RequiredArgsConstructor
+
 @RequestMapping("api/students")
 public class StudentController {
 	private StudentServiceImpl studentService;
 	
-	@GetMapping("/dni") 
-	public List<StudentDTO>findAll(Long dni){
-		return this.studentService.findAll(dni);
+	
+	
+	public StudentController(StudentServiceImpl studentService) {
+		super();
+		this.studentService = studentService;
+	}
+
+	@GetMapping("/dni/{dni}") 
+	public Optional<StudentDTO> findById(@PathVariable Long dni){
+		return this.studentService.findById(dni);
 	}
 	
 	@GetMapping("/{genre}")
-	public List<StudentDTO> findByGenre(@PathVariable char genre){
+	public List<StudentDTO> findByGenre(@PathVariable String genre){
 		return this.studentService.findByGenre(genre);
 	}
-	@GetMapping("/{studentId}")
+	/*@GetMapping("/{studentId}")
 	public StudentDTO findByStudentId(@PathVariable Long studentId) {
 		return this.studentService.findByStudentId(studentId);
-	}
+	}*/
 	@PostMapping("")
 	public Student save(Student entity) throws Exception{
 		return this.studentService.save(entity);
