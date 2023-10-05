@@ -18,12 +18,13 @@ public class EnrolledDTO {
         
     }
 
-    public EnrolledDTO(Integer careerId, String careerName, String studentName, String city) {
+    public EnrolledDTO(Integer careerId, String careerName, String studentName, String city, Long quantity) {
         super();
         this.careerId = careerId;
         this.careerName = careerName;
         this.studentName = studentName;
         this.city = city;
+        this.quantity=quantity;
     }
     
     public EnrolledDTO(Integer careerId, String careerName, Long quantity) {

@@ -10,18 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.arqui.tp3.domain.Student;
+import com.arqui.tp3.dto.EnrolledDTO;
 import com.arqui.tp3.dto.StudentDTO;
 import com.arqui.tp3.service.StudentServiceImpl;
 
-
-
 @RestController
-
 @RequestMapping("api/students")
 public class StudentController {
 	private StudentServiceImpl studentService;
-	
-	
 	
 	public StudentController(StudentServiceImpl studentService) {
 		super();
@@ -37,10 +33,16 @@ public class StudentController {
 	public List<StudentDTO> findByGenre(@PathVariable String genre){
 		return this.studentService.findByGenre(genre);
 	}
-	/*@GetMapping("/{studentId}")
-	public StudentDTO findByStudentId(@PathVariable Long studentId) {
+	@GetMapping("studentID/{studentId}")
+	public Optional<StudentDTO> findByStudentId(@PathVariable Long studentId) {
 		return this.studentService.findByStudentId(studentId);
-	}*/
+	}
+	
+	@GetMapping("search/{careerName}/{city}")
+	public List<StudentDTO> getStudentsByCarrerAndCity(@PathVariable String careerName, @PathVariable String city){
+		return this.studentService.getStudentsByCarrerAndCity(careerName, city);
+	}
+	
 	@PostMapping("")
 	public Student save(Student entity) throws Exception{
 		return this.studentService.save(entity);

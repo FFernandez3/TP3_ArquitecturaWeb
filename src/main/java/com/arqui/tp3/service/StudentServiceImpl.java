@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.arqui.tp3.domain.Student;
+import com.arqui.tp3.dto.EnrolledDTO;
 import com.arqui.tp3.dto.StudentDTO;
 import com.arqui.tp3.repository.StudentRepository;
 
@@ -14,10 +15,10 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
+
 public class StudentServiceImpl /*implements StudentService*/{
 	
-	@Autowired
+	
 	private StudentRepository studentRepository;
 	
 	
@@ -47,8 +48,26 @@ public class StudentServiceImpl /*implements StudentService*/{
 		return this.studentRepository.findByGenre(genre).stream().map(student->new StudentDTO(student.getDni(), student.getName(), student.getSurname(), student.getGenre(), student.getAge(), student.getStudentId(), student.getCity())).toList();
 		
 	}
-	 @Transactional
-	 public StudentDTO findByStudentId(Long studentId) {
+	 public Optional<StudentDTO> findByStudentId(Long studentId){
+		 return this.studentRepository.findByStudentId(studentId).map(student->new StudentDTO(student.getDni(), student.getName(), student.getSurname(), student.getGenre(), student.getAge(), student.getStudentId(), student.getCity()));
+	 }
+	 
+	 public List<StudentDTO> getStudentsByCarrerAndCity(String careerName, String city){
+		 return this.studentRepository.getStudentsByCarrerAndCity(careerName, city).stream().map(student->new StudentDTO(student.getDni(), student.getName(), student.getSurname(), student.getGenre(), student.getAge(), student.getStudentId(), student.getCity())).toList();
+	 }
+	 
+	/* @Transactional
+	 public Optional<StudentDTO> findByStudentId2(Long studentId) {
+	     try {
+	         return this.studentRepository.findById(studentId)
+	             .map(student -> new StudentDTO(student.getDni(), student.getName(), student.getSurname(), student.getGenre(), student.getAge(), student.getStudentId(), student.getCity()));
+	     } catch(Exception e) {
+	         System.out.println(e);
+	         return Optional.empty();
+	     }
+	 }*/
+	/* @Transactional
+	 public Optional<StudentDTO> findByStudentId(Long studentId) {
 		 try {
 			 StudentDTO student = this.studentRepository.findByStudentId(studentId);
 		     if (student != null) {
@@ -64,17 +83,8 @@ public class StudentServiceImpl /*implements StudentService*/{
 		 }
 		return null;
 	     
-	 }
-	 @Transactional
-	 public Optional<StudentDTO> findByStudentId2(Long studentId) {
-	     try {
-	         return this.studentRepository.findById(studentId)
-	             .map(student -> new StudentDTO(student.getDni(), student.getName(), student.getSurname(), student.getGenre(), student.getAge(), student.getStudentId(), student.getCity()));
-	     } catch(Exception e) {
-	         System.out.println(e);
-	         return Optional.empty();
-	     }
-	 }
+	 }*/
+
 	/* @Transactional
 	public StudentDTO findBy(Long studentId) {
 		 try {

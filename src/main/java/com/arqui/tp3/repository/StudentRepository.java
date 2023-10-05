@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.arqui.tp3.domain.Student;
+import com.arqui.tp3.dto.EnrolledDTO;
 import com.arqui.tp3.dto.StudentDTO;
 
 @Repository
@@ -25,6 +26,10 @@ public interface StudentRepository extends JpaRepository<Student, Long>  {
 		
 		
 		@Query("FROM Student s WHERE s.studentId = :studentId")
-		public StudentDTO findByStudentId(Long studentId);
+		public Optional<Student> findByStudentId(Long studentId);
 	 //el insert (save) lo vamos a pedir directo en el service al JPARepository
+		
+		@Query(value="SELECT * FROM student s JOIN student_career sc ON s.dni = sc.id_student JOIN career c ON sc.id_career = c.id WHERE (c.career_name = :careerName) AND (s.city = :city)", nativeQuery=true)
+		/*@Query("FROM Student s JOIN StudentCareer sc ON s.dni = sc.student JOIN Career c ON sc.career = c.id WHERE (c.name = :careerName) AND (s.city = :city)")*/
+		public List<Student> getStudentsByCarrerAndCity(String careerName, String city);
 }

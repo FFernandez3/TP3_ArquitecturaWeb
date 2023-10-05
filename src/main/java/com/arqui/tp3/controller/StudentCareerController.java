@@ -16,16 +16,21 @@ import com.arqui.tp3.service.StudentCareerServiceImpl;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequiredArgsConstructor
+
 @RequestMapping("api/enrolled")
 public class StudentCareerController {
 	private StudentCareerServiceImpl studentCareerService;
 	
-	@GetMapping("/orderBy/quantity")
-	public List<EnrolledDTO> getCareersOrderByQuantity() {
-		return this.studentCareerService.getCareersOrderByQuantity();
-		
+	
+	public StudentCareerController(StudentCareerServiceImpl studentCareerService) {
+		super();
+		this.studentCareerService = studentCareerService;
 	}
+	/*@GetMapping("/orderBy/quantity")
+	public List<EnrolledDTO> getCareersOrderByQuantity2() {
+		return this.studentCareerService.getCareersOrderByQuantity2();
+		
+	}*/
 	@GetMapping("/report")
 	public List<CareerReportDTO> getReport() {
 		return this.studentCareerService.getReport();

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.arqui.tp3.domain.Career;
+import com.arqui.tp3.dto.CareerDTO;
 import com.arqui.tp3.dto.EnrolledDTO;
 import com.arqui.tp3.service.CareerServiceImpl;
 
@@ -17,14 +18,24 @@ import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("api/careers")
 public class CareerController {
 	private CareerServiceImpl careerService;
 	
-	@GetMapping("/{careerName}/{city}")
+	
+	public CareerController(CareerServiceImpl careerService) {
+		super();
+		this.careerService = careerService;
+	}
+
+/*	@GetMapping("/{careerName}/{city}")
 	public List<EnrolledDTO> getStudentsByCarrerAndCity(@PathVariable String careerName, @PathVariable String city){
 		return this.careerService.getStudentsByCarrerAndCity(careerName, city);
+	}*/
+	@GetMapping("/orderBy/quantity")
+	public List<CareerDTO> getCareersOrderByQuantity() {
+		return this.careerService.getCareersOrderByQuantity();
+		
 	}
 	
 	@PostMapping("")
