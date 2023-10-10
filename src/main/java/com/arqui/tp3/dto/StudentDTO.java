@@ -5,71 +5,68 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Data
-@JsonIgnoreProperties( ignoreUnknown = true )
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class StudentDTO {
-    private Long dni;
+	private Long dni;
 
-    private String name;
-    
-    private String surname;
-    
-    private String genre;
-    
-    private int age;
-    
-    private Long studentId;
-    
-    private String city;
-    
-    public StudentDTO() {
-        
-    }
+	private String name;
 
-    public StudentDTO(Long dni, String name, String surname, String genre, int age, Long studentId, String city) {
-        super();
-        this.dni = dni;
-        this.name = name;
-        this.surname = surname;
-        this.genre = genre;
-        this.age = age;
-        this.studentId = studentId;
-        this.city = city;
-    }
+	private String surname;
 
-    public Long getDni() {
-        return dni;
-    }
+	private String genre;
 
-    public String getName() {
-        return name;
-    }
+	private int age;
 
-    public String getSurname() {
-        return surname;
-    }
+	private Long studentId;
 
-    public String getGenre() {
-        return genre;
-    }
+	private String city;
 
-    public int getAge() {
-        return age;
-    }
+	public StudentDTO() {
 
-    public Long getStudentId() {
-        return studentId;
-    }
+	}
 
-    public String getCity() {
-        return city;
-    }
+	public StudentDTO(Long dni, String name, String surname, String genre, int age, Long studentId, String city) {
+		super();
+		this.dni = dni;
+		this.name = name;
+		this.surname = surname;
+		this.genre = genre;
+		this.age = age;
+		this.studentId = studentId;
+		this.city = city;
+	}
 
-    @Override
-    public String toString() {
-        return "StudentDTO [dni=" + dni + ", name=" + name + ", surname=" + surname + ", genre=" + genre + ", age="
-                + age + ", studentId=" + studentId + ", city=" + city + "]";
-    }
+	public Long getDni() {
+		return dni;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public Long getStudentId() {
+		return studentId;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	@Override
+	public String toString() {
+		return "StudentDTO [dni=" + dni + ", name=" + name + ", surname=" + surname + ", genre=" + genre + ", age="
+				+ age + ", studentId=" + studentId + ", city=" + city + "]";
+	}
 }
-
-
-

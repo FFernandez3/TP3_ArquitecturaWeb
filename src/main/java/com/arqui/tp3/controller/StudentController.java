@@ -28,6 +28,10 @@ public class StudentController {
 	public Optional<StudentDTO> findById(@PathVariable Long dni){
 		return this.studentService.findById(dni);
 	}
+	@GetMapping("/dni") 
+	public List<StudentDTO> getAllStudentsOrderByDNI( ){
+		return this.studentService.getAllStudentsOrderByDNI();
+	}
 	
 	@GetMapping("/{genre}")
 	public List<StudentDTO> findByGenre(@PathVariable String genre){

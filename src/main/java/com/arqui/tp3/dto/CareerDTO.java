@@ -6,12 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Data
-@JsonIgnoreProperties( ignoreUnknown = true )
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CareerDTO {
-	
+
 	private Long id;
 	private String name;
-
 
 	public CareerDTO() {
 		super();
@@ -30,11 +29,5 @@ public class CareerDTO {
 	public String getName() {
 		return name;
 	}
-
-
-	
-	
-	
-	
 
 }

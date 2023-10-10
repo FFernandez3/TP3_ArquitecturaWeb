@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -24,36 +23,31 @@ import lombok.NoArgsConstructor;
 @Entity
 @EnableAutoConfiguration
 @NoArgsConstructor
-public class Student /*implements Serializable*/{
-	
+public class Student {
+
 	@Id
 	private Long dni;
-    /*@GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;*/
-	
-	/*@Column(nullable=false)*/
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String name;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String surname;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String genre;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private int age;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private Long studentId;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String city;
-	@OneToMany(mappedBy="student", cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "student", cascade = CascadeType.MERGE)
 	@JsonManagedReference
-	private List<StudentCareer>careers; 
-	
-	
-	
+	private List<StudentCareer> careers;
+
 	public Student() {
 		super();
 	}
+
 	public Student(Long i, String name, String surname, String genre, int age, Long studentId, String city) {
 		super();
 		this.dni = i;
@@ -63,62 +57,67 @@ public class Student /*implements Serializable*/{
 		this.age = age;
 		this.studentId = studentId;
 		this.city = city;
-		this.careers=new ArrayList<StudentCareer>();
+		this.careers = new ArrayList<StudentCareer>();
 	}
+
 	public ArrayList<StudentCareer> getCareers() {
 		return new ArrayList<StudentCareer>(this.careers);
 	}
-	
+
 	public Long getDni() {
 		return dni;
 	}
+
 	public void setDni(Long dni) {
 		this.dni = dni;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getSurname() {
 		return surname;
 	}
+
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
+
 	public String getGenre() {
 		return genre;
 	}
+
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public Long getStudentId() {
 		return studentId;
 	}
+
 	public void setStudentId(Long studentId) {
 		this.studentId = studentId;
 	}
+
 	public String getCity() {
 		return city;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
 
-	/*public Long getIdStudent() {
-		return id;
-	}
-
-	public void setIdStudent(Long idStudent) {
-		this.id = idStudent;
-	}*/
-
 }
-

@@ -1,6 +1,5 @@
 package com.arqui.tp3.domain;
 
-
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -15,12 +14,11 @@ import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @Entity
 @NoArgsConstructor
-public class Career /*implements Serializable */{
-	
+public class Career {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -29,8 +27,6 @@ public class Career /*implements Serializable */{
 	@OneToMany(mappedBy = "career", cascade = CascadeType.MERGE)
 	@JsonManagedReference
 	private List<StudentCareer> students;
-
-	
 
 	public Career() {
 		super();

@@ -1,7 +1,5 @@
 package com.arqui.tp3.domain;
 
-
-
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -14,30 +12,22 @@ import lombok.NoArgsConstructor;
 @Entity
 @EnableAutoConfiguration
 @NoArgsConstructor
-public class StudentCareer /*implements Serializable */{
-	
-	
-	/*private static final long serialVersionUID = 1L;*/
-	
-	/*@EmbeddedId
-	private StudentCareerPK id;*/
-	
+public class StudentCareer {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
-	/*@MapsId("id")*/
-	/*@JoinColumn(name = "id_Career", referencedColumnName="id")*/
-	@JoinColumn(name = "id_Career", nullable=false)
+
+	@JoinColumn(name = "id_Career", nullable = false)
 	private Career career;
-	
+
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
-	/*@MapsId("dni")*/
-	/*@JoinColumn(name = "id_Student", referencedColumnName="dni")*/
-	@JoinColumn(name = "id_Student", nullable=false)
+
+	@JoinColumn(name = "id_Student", nullable = false)
 	private Student student;
 
 	@Column(nullable = true)
@@ -46,8 +36,6 @@ public class StudentCareer /*implements Serializable */{
 	private Integer entryYear;
 	@Column(nullable = false)
 	private boolean isGraduated;
-
-	
 
 	public StudentCareer() {
 		super();
@@ -62,8 +50,6 @@ public class StudentCareer /*implements Serializable */{
 		this.entryYear = entryYear;
 		this.isGraduated = isGraduated;
 	}
-	
-	
 
 	public Career getCareer() {
 		return career;
@@ -111,4 +97,3 @@ public class StudentCareer /*implements Serializable */{
 	}
 
 }
-
