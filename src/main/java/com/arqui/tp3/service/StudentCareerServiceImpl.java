@@ -29,7 +29,7 @@ public class StudentCareerServiceImpl /* implements StudentCareerService */ {
 	/*@Transactional*/ /*no poner transactional pq no se hacen cambios en la BD*/
 	public List<CareerReportDTO> getReport() {
 		List<Object[]> careerReports = this.studentCareerRepository.getReport();
-        return careerReports.stream().map(report-> new CareerReportDTO((String)report[0], (Integer)report[1], (BigInteger)report[2],(BigInteger)report[3])).collect(Collectors.toList());
+        return careerReports.stream().map(report-> new CareerReportDTO((String)report[0], (Integer)report[1], (Long)report[2], (Long)report[3])).collect(Collectors.toList());
 		
 	}
 	/*return this.studentCareerRepository.getReport().stream().map(report -> new CareerReportDTO(report.getCareerName(), report.getYears(), report.getRegistered(),

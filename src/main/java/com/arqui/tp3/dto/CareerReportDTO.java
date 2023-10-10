@@ -13,8 +13,8 @@ public class CareerReportDTO {
     private String careerName;
     private Integer years;
     private Long dni;
-    private BigInteger registered;
-    private BigInteger graduates;
+    private Long registered;
+    private Long graduates;
     private Integer entryYear;
     private Integer graduationYear;
 
@@ -23,7 +23,7 @@ public class CareerReportDTO {
     }
 
     
-	public CareerReportDTO(String careerName, Integer years, BigInteger registered, BigInteger graduates) {
+	public CareerReportDTO(String careerName, Integer years, Long registered, Long graduates) {
 		super();
 		this.careerName = careerName;
 		this.years = years;
@@ -38,12 +38,12 @@ public class CareerReportDTO {
 	}
 
 
-	public BigInteger getRegistered() {
+	public Long getRegistered() {
 		return registered;
 	}
 
 
-	public BigInteger getGraduates() {
+	public Long getGraduates() {
 		return graduates;
 	}
 
