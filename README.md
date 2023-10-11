@@ -33,7 +33,7 @@ Trabajo entregable 3 de la materia Arquitectura Web: Servicios REST y SpringBoot
 **Example:** `localhost:8080/api/careers/orderBy/quantity`  
 ## Obtener un reporte de las carreras
 **Method:** GET  
-**URL:** /api/careers/report  
+**URL:** /api/enrolled/report  
 **Response:** 200 OK  
-**Example:** `localhost:8080/api/careers/report`  
+**Example:** `localhost:8080/api/enrolled/report`  
 
