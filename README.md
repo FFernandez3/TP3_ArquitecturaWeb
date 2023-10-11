@@ -10,7 +10,7 @@ Trabajo entregable 3 de la materia Arquitectura Web: Servicios REST y SpringBoot
 **Method:** GET  
 **URL:** /api/students/dni  
 **Response:** 200 OK  
-**Example:** `localhost:8080/api/students/dni/3929710`  
+**Example:** `localhost:8080/api/students/dni`  
 ## Obtener estudiantes según su género
 **Method:** GET  
 **URL:** /api/students/:genre  
